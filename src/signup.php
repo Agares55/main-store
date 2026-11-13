@@ -1,5 +1,9 @@
 <?php
+//get datebase connection
+include('../settings/database.php');
+
 //get payload
+
     $first_name = $_POST['fname'];
     $last_name = $_POST['lname'];
     $ident_number = $_POST['idnumber'];
@@ -7,9 +11,24 @@
     $email = $_POST['email'];
     $passwd = MD5($_POST['pswd']);
 
-    echo "<br>" . $first_name;
-    echo "<br>" . $last_name;
-    echo "<br>" . $ident_number;
-    echo "<br>" . $mobile_phone;
-    echo "<br>" . $email;
-    echo "<br>" . $passwd;
+//prepare query
+
+$sql="
+    INSERT INTO 
+    users (firstname, lastname, ident_number, email, password) 
+    VALUES (
+    '$first_name', 
+    '$last_name',
+    '$ident_number',
+    '$email',
+    '$passwd');
+";
+
+//Execute query
+
+$res = pg_query($local_conn, $sql);
+if ($res){
+    echo "User has been created successfully !!!";
+} else {
+    echo "Error: User hasn't been created successfully !!! Detalle: " . pg_last_error($local_conn);
+}
