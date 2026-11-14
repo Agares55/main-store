@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['user_firtsname'])){
-    echo "id: ".$_SESSION['user_firtsname'];
-    //header('refresh:0;url=signin.html');
+if(!isset($_SESSION['user_id'])){
+    header('refresh:0;url=signin.html');
     exit();
 }
 

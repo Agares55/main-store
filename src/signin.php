@@ -3,8 +3,8 @@
 include('../settings/database.php');
 
 session_start();
-if (!isset($_SESSION['user_firstname'])) {
-    //header('refresh:0;url=signin.html');
+if (!isset($_SESSION['user_id'])) {
+    header('refresh:0;url=signin.html');
 } else {
     header('refresh:0;url=home.php');
 }
@@ -31,14 +31,11 @@ $total = pg_num_rows($res);
 $row = pg_fetch_assoc($res);
 
 if ($total > 0) {
-    echo"holax". $total;
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['user_firstname'] = $row['firstname'];
     $_SESSION['user_lastname'] = $row['lastname'];
-    //header('refresh:0;url=home.php');
-    echo "id: ".$_SESSION['user_firtsname'];
+    header('refresh:0;url=home.php');
 } else {
-    echo"holay". $total;
     echo "<script>alert('Invalid email or password. Try again !!!')</script>";
     header('refresh:0;url=signin.html');
 }
