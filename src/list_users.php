@@ -28,9 +28,12 @@ include('../settings/database.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Store - List users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
     <body>
-        <table border = "1" align = "center">
+        <table class="table">
+            <thead class="table-dark">
             <tr>
                 <th>Photo</th>
                 <th>Fullname</th>
@@ -39,6 +42,7 @@ include('../settings/database.php');
                 <th>Status</th>
                 <th>Options</th>
             </tr>
+            </thead>
             <?php while($row = pg_fetch_assoc($res)) { ?>
                 <tr>
 
@@ -50,8 +54,7 @@ include('../settings/database.php');
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['mobile_phone'] ?></td>
                     <td><?= $row['status'] ?></td>
-                    <td align="center">
-                
+                    <td>
                         <a href="#">
                             <img src = "icons/edit.png" alt="Edit user" width="20">
                         </a>
