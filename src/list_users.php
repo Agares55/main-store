@@ -55,7 +55,7 @@ include('../settings/database.php');
                     <td><?= $row['mobile_phone'] ?></td>
                     <td><?= $row['status'] ?></td>
                     <td>
-                        <a href="#">
+                        <a href="edit_user.php?id=<?php echo $row['id']; ?>">
                             <img src = "icons/edit.png" alt="Edit user" width="20">
                         </a>
                         <a href="#">
