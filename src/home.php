@@ -21,5 +21,7 @@ if(!isset($_SESSION['user_id'])){
             <?php echo $_SESSION['user_firstname']." " . $_SESSION['user_lastname']; ?>
             <h3>Welcome to main store</h3> | <a href="logout.php">Logout</a>
         </center>
+         Menu: <br>
+        <a href="list_users.php">List users</a>
     </body>
 </html>
