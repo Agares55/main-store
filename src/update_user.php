@@ -3,6 +3,18 @@
 Use this Endpoint to test request
 http://localhost/main-store/src/update_user.php?userID=ANY-ID-NUMBER
 */
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('refresh:0;url=signin.html');
+    exit();
+}
+
+$role_session = isset($_SESSION['role']) ? $_SESSION['role'] : 'user';
+if ($role_session !== 'admin') {
+    header('refresh:0;url=home.php');
+    exit();
+}
+
 include('../settings/database.php');
 // Datos que llegan del formulario
 $id           = $_POST['id'];
@@ -10,12 +22,13 @@ $firstname    = $_POST['firstname'];
 $lastname     = $_POST['lastname'];
 $email        = $_POST['email'];
 $mobile_phone = $_POST['mobile_phone'];
+$role         = isset($_POST['role']) && $_POST['role'] === 'admin' ? 'admin' : 'user';
 
 // ---------- PARTE A: actualizar los datos ----------
 $sql = 'UPDATE users
-        SET firstname = $1, lastname = $2, email = $3, mobile_phone = $4
-        WHERE id = $5';
-$result = pg_query_params($local_conn, $sql, array($firstname, $lastname, $email, $mobile_phone, $id));
+        SET firstname = $1, lastname = $2, email = $3, mobile_phone = $4, role = $5
+        WHERE id = $6';
+$result = pg_query_params($local_conn, $sql, array($firstname, $lastname, $email, $mobile_phone, $role, $id));
 
 if (!$result) {
     echo "Error al actualizar los datos";

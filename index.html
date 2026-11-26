@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Store</title>
-    <link rel="icon" type="image/png" href="src/icons/main_store.png"
+    <link rel="icon" type="image/png" href="src/icons/main_store.png">
+    <link rel="stylesheet" href="src/apple_light.css">
+    <style>
+        .landing-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .landing-card {
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+        }
+        .landing-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <a href="src/signin.html">Sign in</a> |
-    <a href="src/signup.html">Sign up</a>
+    <div class="apple-glow-third"></div>
+    <div class="apple-layer landing-wrap">
+        <div class="apple-card landing-card">
+            <img src="src/icons/main_store.png" alt="Main Store" width="56">
+            <h1 style="margin: 14px 0 6px;">Main Store</h1>
+            <p style="color: var(--text-secondary); margin: 0;">Storefront &amp; Management</p>
+            <div class="landing-actions">
+                <a href="src/signin.html" class="apple-btn">Sign in</a>
+                <a href="src/signup.html" class="apple-btn apple-btn-secondary">Register</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

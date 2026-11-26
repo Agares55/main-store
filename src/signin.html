@@ -3,17 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Main Store - Sign in</title>
+    <link rel="icon" type="image/png" href="icons/main_store.png">
+    <link rel="stylesheet" href="apple_light.css">
+    <style>
+        .auth-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .auth-card {
+            max-width: 420px;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 0.92rem;
+        }
+    </style>
 </head>
-    <body>
-    <h3>Login user</h3>
-        <form name="Login" action="signin.php" method="post">
-            <label> E-mail:</label><br>
-            <input type="email" name="email" placeholder="joe@mail.com"required ><br>
-            <label> Password:</label><br>
-            <input type="password" name="pswd" placeholder="*******"><br>
-            <button> Login</button>
+<body>
+    <div class="apple-glow-third"></div>
+    <div class="apple-layer auth-wrap">
+        <div class="apple-card auth-card">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="icons/main_store.png" alt="Main Store" width="44">
+                <h2 style="margin: 10px 0 4px;">Sign in</h2>
+            </div>
 
-        </form>
-    </body>
+            <form name="login-form" action="signin.php" method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="apple-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="pswd" class="apple-input" required>
+                </div>
+                <button type="submit" class="apple-btn" style="width: 100%;">Sign in</button>
+            </form>
+
+            <div style="margin-top: 18px; text-align: center; font-size: 0.9rem;">
+                <a href="signup.html" style="color: var(--accent); text-decoration: none;">Register</a>
+                &nbsp;|&nbsp;
+                <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Home</a>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

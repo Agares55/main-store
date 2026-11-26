@@ -3,25 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Store - Register User</Main></title>
-    <link rel="icon" type="image/png" href="icons/main_store.png"
+    <title>Main Store - Register User</title>
+    <link rel="icon" type="image/png" href="icons/main_store.png">
+    <link rel="stylesheet" href="apple_light.css">
+    <style>
+        .auth-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .auth-card {
+            max-width: 460px;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.92rem;
+        }
+    </style>
 </head>
 <body>
-    <h3>Register user form</h3>
-    <form name="register-form" action="signup.php" method="post">
-        <label> Firstname:</label><br>
-        <input type="text" name="fname"><br>
-        <label> Lastname:</label><br>
-        <input type="text" name="lname"><br>
-        <label>Identification number:</label><br>
-        <input type="text" name="idnumber"><br>
-        <label> Mobile phone:</label><br>
-        <input type="text" name="mphone"><br>
-        <label> E-mail:</label><br>
-        <input type="email" name="email" required ><br>
-        <label> Password:</label><br>
-        <input type="password" name="pswd"><br>
-        <button> Register</button>
-    </form>
+    <div class="apple-glow-third"></div>
+    <div class="apple-layer auth-wrap">
+        <div class="apple-card auth-card">
+            <h2 style="margin-top: 0; margin-bottom: 18px;">Register user form</h2>
+
+            <form name="register-form" action="signup.php" method="post">
+                <div class="form-group">
+                    <label>Firstname:</label>
+                    <input type="text" name="fname" class="apple-input">
+                </div>
+                <div class="form-group">
+                    <label>Lastname:</label>
+                    <input type="text" name="lname" class="apple-input">
+                </div>
+                <div class="form-group">
+                    <label>Identification number:</label>
+                    <input type="text" name="idnumber" class="apple-input">
+                </div>
+                <div class="form-group">
+                    <label>Mobile phone:</label>
+                    <input type="text" name="mphone" class="apple-input">
+                </div>
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <input type="email" name="email" class="apple-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" name="pswd" class="apple-input">
+                </div>
+                <button type="submit" class="apple-btn" style="width: 100%;">Register</button>
+            </form>
+
+            <div style="margin-top: 16px; text-align: center; font-size: 0.9rem;">
+                <a href="signin.html" style="color: var(--accent); text-decoration: none;">Sign in</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
